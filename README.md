@@ -1,2 +1,2 @@
-# mage
-Multilocus Alignment GEnerator
+# MAGe
+[M]ultilocus [A]lignment [Ge]nerator
