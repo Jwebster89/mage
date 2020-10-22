@@ -16,7 +16,6 @@ Columns 3 and 4 contain sample names and target regions respectively. Sample nam
 
 
 | 1         | 2          | Sample 1     | Beta_Tubulin |
-|-----------|------------|--------------|--------------|
 | 3         | 4          | Sample 2     | Beta_Tubulin |
 | 5         | 6          | Sample 1     | TEF          |
 | 7         | 8          | Sample 2     | TEF          |
