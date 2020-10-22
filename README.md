@@ -26,10 +26,10 @@ Columns 3 and 4 contain sample names and target regions respectively. Sample nam
 
 ## Output
 Seven subfolders of intermediate files are produced in the `--path` directory.
--1_fastq_files: Contains ab1 files converted to fastq
--2_trimmed_reads: Quality filtered fastq reads
--3_alignmed_reads: Mafft alignment of forward and reverse reads
--4_sanger_consensus: Consensus files from the previous Mafft alignment. Reference files are also moved to this folder and their headers renamed.
--5_alignments: A multi fasta of each target region for input into Mafft (.fasta), a Mafft alignment (.aln) and a trimmed alignment (.nex)
--6_supermatrix: A concatenation of the nexus files in the previous step as well as a conversion of the nexus file back to an alignment (.aln).
--7_final_tree: The output files from the RAxML steps and a copy of the tree renamed to "MAGE_tree_output.final" as a final output file.
+- 1_fastq_files: Contains ab1 files converted to fastq
+- 2_trimmed_reads: Quality filtered fastq reads
+- 3_alignmed_reads: Mafft alignment of forward and reverse reads
+- 4_sanger_consensus: Consensus files from the previous Mafft alignment. Reference files are also moved to this folder and their headers renamed.
+- 5_alignments: A multi fasta of each target region for input into Mafft (.fasta), a Mafft alignment (.aln) and a trimmed alignment (.nex)
+- 6_supermatrix: A concatenation of the nexus files in the previous step as well as a conversion of the nexus file back to an alignment (.aln).
+- 7_final_tree: The output files from the RAxML steps and a copy of the tree renamed to "MAGE_tree_output.final" as a final output file.
