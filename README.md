@@ -4,7 +4,7 @@
 ## Introduction
 MAGe takes a set of forward and reverse Sanger sequencing reads with the .ab1 extension, a set of reference fasta files and a csv file to generate a multilocus sequence alignment and produce a RAxML tree from the concatenated supermatrix.
 
-## Usage
+## Quick Usage
 All Sanger reads and reference fasta files are place in a single directory and specified with the `-p`/`--path` option. MAGe will produce all output files in subdirectories of this path. The csv file specified with `-c`/`--csv` names all files and target regions that MAGe uses to build the final alignment.
 
 ### CSV format
@@ -33,3 +33,26 @@ Seven subfolders of intermediate files are produced in the `--path` directory.
 - 5_alignments: A multi fasta of each target region for input into Mafft (.fasta), a Mafft alignment (.aln) and a trimmed alignment (.nex)
 - 6_supermatrix: A concatenation of the nexus files in the previous step as well as a conversion of the nexus file back to an alignment (.aln).
 - 7_final_tree: The output files from the RAxML steps and a copy of the tree renamed to "MAGE_tree_output.final" as a final output file.
+
+
+## Options and Usage
+```
+usage: Plants_pipeline.py -p PATH -c CSV [-f] [-h]
+
+Multilocus Alignment Generator
+
+ __  __    _    ____
+|  \/  |  / \  / ___| ___
+| |\/| | / _ \| |  _ / _ \       /\
+| |  | |/ ___ \ |_| |  __/     ------
+|_|  |_/_/   \_\____|\___|    (∩｀-｀)⊃━☆ﾟ.*･｡ﾟ
+
+
+Required Arguments:
+  -p PATH, --path PATH  folder of abi files
+  -c CSV, --csv CSV     spreadsheet of forward read, reverse read, sample ID and target region
+
+Optional Arguments:
+  -f, --force           Force overwrite of previous run
+  -h, --help            show this help message and exit
+```
