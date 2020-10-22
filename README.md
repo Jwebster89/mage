@@ -37,7 +37,7 @@ Seven subfolders of intermediate files are produced in the `--path` directory.
 
 ## Options and Usage
 ```
-usage: Plants_pipeline.py -p PATH -c CSV [-f] [-h]
+usage: MAGe.py -p PATH -c CSV [-f] [-h]
 
 Multilocus Alignment Generator
 
