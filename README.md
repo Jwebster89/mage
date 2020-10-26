@@ -10,7 +10,7 @@ All Sanger reads and reference fasta files are place in a single directory and s
 ### CSV format
 The format of the csv is 4 columns with forward sequence, reverse sequence, sample name and target region. Sequence names should **match the filename exactly without the extension**. E.g. in the example below, "1" relates to file 1.ab1 and "2" relates to file 2.ab1.
 
-For reference files, column two should again include the filename minus the extension, e.g. 'Ref 1 BT1' for filename 'Ref 1 BT1.fasta'. Note that filenames may have whitespace characters.
+For reference files, column two should again include the filename minus the extension, e.g. 'Ref 1 BT1' for filename 'Ref 1 BT1.fasta'. Note that filenames may have whitespace characters. Column one should just contain the word "Reference"
 
 Columns 3 and 4 contain sample names and target regions respectively. Sample names must remain consistent or they will be treated as separate samples, e.g. "Sample 1" and "Sample.1" will be treated separately. Sample names may also contain whitespace. Target names must also remain consistent or will be treated as separate amplicons. Target names are not currently supported with whitespace or -. Best practice currently is to include only alphanumeric characters and underscores, as below.
 |           |            |              |              |
