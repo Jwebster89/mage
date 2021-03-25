@@ -5,7 +5,7 @@ import sys
 import csv
 import subprocess
 import argparse
-from gooey import Gooey
+import shutil
 
 class Mage():
 	def __init__(self,path,csv,force):
@@ -20,6 +20,23 @@ class Mage():
 		self.alignments_dir5=os.path.join(path,"5_alignments")
 		self.supermatrix_dir6=os.path.join(path,"6_supermatrix")
 		self.tree_dir7=os.path.join(path,"7_FinalTree")
+
+	def force_removal(self, force):
+		if force == True:
+			if os.path.exists(self.fastq_dir1):
+				shutil.rmtree(self.fastq_dir1)
+			if os.path.exists(self.trimmed_dir2):
+				shutil.rmtree(self.trimmed_dir2)
+			if os.path.exists(self.aligned_dir3):
+				shutil.rmtree(self.aligned_dir3)
+			if os.path.exists(self.consensus_dir4):
+				shutil.rmtree(self.consensus_dir4)
+			if os.path.exists(self.alignments_dir5):
+				shutil.rmtree(self.alignments_dir5)
+			if os.path.exists(self.supermatrix_dir6):
+				shutil.rmtree(self.supermatrix_dir6)
+			if os.path.exists(self.tree_dir7):
+				shutil.rmtree(self.tree_dir7)
 
 	def reformat(self, path):
 		print("Starting Step 1: Reformat of AB1 to FASTQ")
@@ -38,7 +55,7 @@ class Mage():
 							sequences=SeqIO.parse(input_handle, "abi")
 							SeqIO.write(sequences, output_handle, "fastq")
 		return(os.listdir(self.fastq_dir1))
-	
+
 	def trim(self, fastq):
 		print("Starting Step 2: Trimming")
 		if not os.path.exists(self.trimmed_dir2):
@@ -57,8 +74,7 @@ class Mage():
 		if not os.path.exists(self.aligned_dir3):
 			os.mkdir(self.aligned_dir3)
 		elif force:
-			for file in os.listdir(self.aligned_dir3):
-				subprocess.run(["rm",os.path.join(self.aligned_dir3,file)])
+			pass
 		else:
 			sys.exit("Output files already exist, please remove files to continue")
 		with open(self.csv) as csv_file:
@@ -219,6 +235,8 @@ class Mage():
 				mage_handle.write(data)
 
 	def run(self):
+		print(self.csv)
+		self.force_removal(self.force)
 		self.trim(self.reformat(self.path))
 		self.assemble()
 		self.consensus()
@@ -228,7 +246,6 @@ class Mage():
 		self.supermatrix()
 		self.RAxML()
 
-@Gooey
 def main():
 	parser = argparse.ArgumentParser(description="MLSA Generator", formatter_class=argparse.RawTextHelpFormatter, add_help=False)
 	optional = parser.add_argument_group('Optional Arguments')
