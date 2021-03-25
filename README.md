@@ -34,6 +34,13 @@ Seven subfolders of intermediate files are produced in the `--path` directory.
 - 6_supermatrix: A concatenation of the nexus files in the previous step as well as a conversion of the nexus file back to an alignment (.aln).
 - 7_final_tree: The output files from the RAxML steps and a copy of the tree renamed to "MAGE_tree_output.final" as a final output file.
 
+## Docker.py
+
+For use on a Windows system, a docker container running MAGe has been implemented. Running docker.py will allow the user to import their files and csv file through a GUI using Gooey. This will result in a windows batch file ("DOUBLE_CLICK_ME_mage.bat") being generated in the same folder as docker.py. Double clicking this .bat file (as suggested) will run the docker implementation. Some notes on this initial implementation:
+- All files to be analysed, including the csv, should be located in the same folder
+- output files will be placed in a folder with the same name as the csv file
+- [wsl 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10), [Gooey](https://github.com/chriskiehl/Gooey) and [Docker](https://www.docker.com/products/docker-desktop) need to be installed on the host system. 
+
 
 ## Options and Usage
 ```
