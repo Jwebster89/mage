@@ -16,7 +16,7 @@ class Mage():
 		with open(os.path.join(pathlib.Path(__file__).parent.absolute(),"DOUBLE_CLICK_ME_mage.bat"), "w") as bat_file:
 			bat_file.write("docker volume create mage_data\n")
 			bat_file.write("xcopy /E/H/C/I {} \\\wsl$\docker-desktop-data\\version-pack-data\community\docker\\volumes\mage_data\_data \n".format(files))
-			bat_file.write("docker run -v mage_data:/home/data/files --name jwebster89/mage mage --path /home/data/files --csv /home/data/files/{} --force\n".format(os.path.basename(csv)))
+			bat_file.write("docker run -it -v mage_data:/home/data/files --name jwebster89/mage mage --path /home/data/files --csv /home/data/files/{} --force\n".format(os.path.basename(csv)))
 			bat_file.write("mkdir ./mage_output_{} \n".format(run_id))
 			bat_file.write("xcopy /E/H/C/I \\\wsl$\docker-desktop-data\\version-pack-data\community\docker\\volumes\mage_data\_data .\mage_output_{} \n".format(run_id))
 			bat_file.write("docker rm -f mage\n")
