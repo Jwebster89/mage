@@ -5,7 +5,6 @@ import sys
 import subprocess
 from subprocess import check_output
 import argparse
-from gooey import Gooey
 
 
 class MLSA_Blast():
@@ -30,7 +29,6 @@ class MLSA_Blast():
 		for file in self.targets:
 			self.blast(file)
 
-@Gooey
 def main():
 	parser = argparse.ArgumentParser(description="MAGE gene screen ", add_help=False)
 
